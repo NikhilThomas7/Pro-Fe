@@ -1,0 +1,42 @@
+<div>
+    <h2>Products List api.1.0</h2>
+    <table border="2">
+      <thead>
+        <th>Product id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </thead>
+      <tr *ngFor="let product of Products">
+        <td>{{ product.productId }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.qty }}</td>
+        <td>
+          <button *ngIf="product.productId !== undefined" (click)="deleteProduct(product.productId)">Delete</button>
+          <!-- <button *ngIf="product.productId !== undefined" (click)="selectProduct(product)">Update</button> -->
+          <button *ngIf="product.productId !== undefined" (click) = "updateProduct(product.productId)" >Update</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <div *ngIf="selectedProduct">
+    <h3>Update the Details</h3>
+    <form (submit)="saveUpdatedProduct()">
+      <input type="hidden" [(ngModel)]="selectedProduct.productId" name="productId">
+      <label for="nameInput">Name:</label>
+      <input type="text" [(ngModel)]="selectedProduct.name" name="name" required><br>
+      <label for="descriptionInput">Description:</label>
+      <input type="text" [(ngModel)]="selectedProduct.description" name="description" required><br>
+      <label for="priceInput">Price:</label>
+      <input type="number" [(ngModel)]="selectedProduct.price" name="price" required><br>
+      <label for="qtyInput">Quantity:</label>
+      <input type="number" [(ngModel)]="selectedProduct.qty" name="qty" required><br>
+      <button type="submit">Update Product</button>
+    </form>
+  </div>
+  

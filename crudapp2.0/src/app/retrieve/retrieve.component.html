@@ -1,0 +1,46 @@
+<!-- Import the Bootstrap classes and components -->
+<div class="container">
+  <button class="btn btn-primary" (click)="createnav()">Create New Product</button>
+
+  <div>
+    <h2>Available Movies</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Movie Id</th>
+          <th>Name</th>
+          <th>Director</th>
+          <th>Genre</th>
+          <th>Release Date</th>
+          <th>Language</th>
+          <th>Duration</th>
+          <th>Country</th>
+          <th>Description</th>
+          <th>Overall Rate</th>
+          <th>Image URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of Products">
+          <td>{{ product.movieId }}</td>
+          <td>{{ product.movieName }}</td>
+          <td>{{ product.movieDirector }}</td>
+          <td>{{ product.movieGenre }}</td>
+          <td>{{ product.movieReleaseDate }}</td>
+          <td>{{ product.movieLanguage }}</td>
+          <td>{{ product.duration }}</td>
+          <td>{{ product.country }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.overallRate }}</td>
+          <td>{{ product.imageUrl }}</td>
+          <!-- <td>
+            <button class="btn btn-danger" *ngIf="product.productId !== undefined" (click)="deleteProduct(product.productId)">Delete</button>
+            <button class="btn btn-primary" *ngIf="product.productId !== undefined" (click)="updateProduct(product.productId)">Update</button>
+          </td> -->
+          <td><img src="{{ product.imageUrl }}" alt="My Image" style="height: 200px; width: 400px;">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

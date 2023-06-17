@@ -1,0 +1,58 @@
+<div class="container">
+  <h3>Save a Movie</h3>
+  <div class="card">
+    <form (ngSubmit)="onSubmit()" class="form">
+      <div class="mb-3">
+        <label for="moviename">Movie Name</label>
+        <input type="text" class="form-control" id="movieName" [(ngModel)]="movie.movieName" name="movieName">
+      </div>
+
+      <div class="mb-3">
+        <label for="director">Director</label>
+        <input type="text" class="form-control" id="director" [(ngModel)]="movie.movieDirector" name="movieDirector">
+      </div>
+
+      <div class="mb-3">
+        <label for="genre">Genre</label>
+        <input type="text" class="form-control" id="genre" [(ngModel)]="movie.movieGenre" name="movieGenre">
+      </div>
+
+      <div class="mb-3">
+        <label for="releaseDate">Release Date</label>
+        <input type="text" class="form-control" id="releaseDate" [(ngModel)]="movie.movieReleaseDate" name="movieReleaseDate">
+      </div>
+
+      <div class="mb-3">
+        <label for="language">Language</label>
+        <input type="text" class="form-control" id="language" [(ngModel)]="movie.movieLanguage" name="movieLanguage">
+      </div>
+
+      <div class="mb-3">
+        <label for="duration">Duration</label>
+        <input type="text" class="form-control" id="duration" [(ngModel)]="movie.duration" name="duration">
+      </div>
+
+      <div class="mb-3">
+        <label for="country">Country</label>
+        <input type="text" class="form-control" id="country" [(ngModel)]="movie.country" name="country">
+      </div>
+
+      <div class="mb-3">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="movie.description" name="description">
+      </div>
+
+      <div class="mb-3">
+        <label for="overallRate">Overall Rate</label>
+        <input type="number" class="form-control" id="overallRate" [(ngModel)]="movie.overallRate" name="overallRate">
+      </div>
+
+      <div class="mb-3">
+        <label for="imageFile">Image File</label>
+        <input type="file" class="form-control" id="imageFile" (change)="onImageFileChange($event)" name="imageFile">
+      </div>
+
+      <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
