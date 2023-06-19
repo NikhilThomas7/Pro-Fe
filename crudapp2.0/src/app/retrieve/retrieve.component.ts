@@ -25,14 +25,17 @@ export class RetrieveComponent implements OnInit {
     });
   }
 
-  // deleteProduct(productId: number): void {
-  //   this.service.deleteProductById(productId).subscribe(() => {
-  //     this.getProducts();
-  //   });
-  // }
-  // updateProduct(id:number){
-  //   this.router.navigate(['update', id]);
-  // }
+  deleteProduct(productId: number): void {
+    this.service.deleteProductById(productId).subscribe(() => {
+      console.log('Movie deleted successfully');
+      this.getProducts();
+      alert('Movie deleted successfully');
+      this.router.navigate(['retrieve']);
+    });
+  }
+  updateProduct(id:number){
+    this.router.navigate(['update', id]);
+  }
 
   createnav(){
     this.router.navigate(['create']);

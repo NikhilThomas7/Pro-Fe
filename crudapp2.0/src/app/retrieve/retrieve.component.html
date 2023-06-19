@@ -33,11 +33,11 @@
           <td>{{ product.description }}</td>
           <td>{{ product.overallRate }}</td>
           <td>{{ product.imageUrl }}</td>
-          <!-- <td>
-            <button class="btn btn-danger" *ngIf="product.productId !== undefined" (click)="deleteProduct(product.productId)">Delete</button>
-            <button class="btn btn-primary" *ngIf="product.productId !== undefined" (click)="updateProduct(product.productId)">Update</button>
-          </td> -->
-          <td><img src="{{ product.imageUrl }}" alt="My Image" style="height: 200px; width: 400px;">
+          <td>
+            <button class="btn btn-danger" *ngIf="product.movieId !== undefined" (click)="deleteProduct(product.movieId)">Delete</button>
+            <button class="btn btn-primary" *ngIf="product.movieId !== undefined" (click)="updateProduct(product.movieId)">Update</button>
+          </td>
+          <td><img src="{{ product.imageUrl }}" alt="My Image" style="height: 100px; width: 200px;">
           </td>
         </tr>
       </tbody>
