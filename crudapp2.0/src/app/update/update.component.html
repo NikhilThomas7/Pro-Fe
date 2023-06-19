@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <h2>Update Product</h2>
 
   <div class="card">
@@ -22,6 +22,72 @@
           <label for="qtyInput" class="form-label">Quantity:</label>
           <input type="number" class="form-control" [(ngModel)]="product.qty" name="qty" required>
         </div>
+        <button type="submit" class="btn btn-primary">Update Product</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <h2>Update Product</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <h3>Product Details</h3>
+      <form (submit)="saveUpdatedProduct()">
+        <input type="hidden" [(ngModel)]="product.movieId" name="movieId">
+        <div class="mb-3">
+          <label for="nameInput" class="form-label">Name:</label>
+          <input type="text" class="form-control" [(ngModel)]="product.movieName" name="movieName" required>
+        </div>
+        <div class="mb-3">
+          <label for="directorInput" class="form-label">Director:</label>
+          <input type="text" class="form-control" [(ngModel)]="product.movieDirector" name="movieDirector" required>
+        </div>
+        <div class="mb-3">
+          <label for="genreInput" class="form-label">Genre:</label>
+          <input type="text" class="form-control" [(ngModel)]="product.movieGenre" name="movieGenre" required>
+        </div>
+        <div class="mb-3">
+          <label for="releaseDateInput" class="form-label">Release Date:</label>
+          <input type="text" class="form-control" [(ngModel)]="product.movieReleaseDate" name="movieReleaseDate" required>
+        </div>
+        <div class="mb-3">
+          <label for="languageInput" class="form-label">Language:</label>
+          <input type="text" class="form-control" [(ngModel)]="product.movieLanguage" name="movieLanguage" required>
+        </div>
+        <div class="mb-3">
+          <label for="durationInput" class="form-label">Duration:</label>
+          <input type="text" class="form-control" [(ngModel)]="product.duration" name="duration" required>
+        </div>
+        <div class="mb-3">
+          <label for="countryInput" class="form-label">Country:</label>
+          <input type="text" class="form-control" [(ngModel)]="product.country" name="country" required>
+        </div>
+        <div class="mb-3">
+          <label for="descriptionInput" class="form-label">Description:</label>
+          <input type="text" class="form-control" [(ngModel)]="product.description" name="description" required>
+        </div>
+        <div class="mb-3">
+          <label for="rateInput" class="form-label">Overall Rate:</label>
+          <input type="number" class="form-control" [(ngModel)]="product.overallRate" name="overallRate" required>
+        </div>
+        <div class="mb-3">
+          <img src="{{ product.imageUrl }}" alt="My Image" style="height: 100px; width: 200px;">
+        </div>
+        
+        <!-- <div class="mb-3">
+          <label for="imageUrlInput" class="form-label">Image URL:</label>
+          <input type="text" class="form-control" [(ngModel)]="product.imageUrl" name="imageUrl" required>
+        </div> -->
+
+        <div class="mb-3">
+          <label for="imageFile">Image File</label>
+          <input type="file" class="form-control" id="imageFile" (change)="onImageFileChange($event)" name="imageFile">
+        </div>
+
+
         <button type="submit" class="btn btn-primary">Update Product</button>
       </form>
     </div>

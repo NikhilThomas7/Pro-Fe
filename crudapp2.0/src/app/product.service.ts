@@ -34,7 +34,7 @@ export class ProductService {
   
 
   getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>(`http://localhost:8095/product/api.2.0/retrieve/${id}`);
+    return this.http.get<Product>(`http://localhost:8083/1.0/admin/get/${id}`);
   }
 
   deleteProductById(id: number): Observable<string> {
@@ -60,9 +60,25 @@ export class ProductService {
   // }
   
 
-  updateProduct(product: Product): Observable<Object> {
-    return this.http.put("http://localhost:8095/product/api.2.0/update", product);
-  }
+  // updateProduct(product: Product,id:number): Observable<any> {
+  //   return this.http.put("http://localhost:8095/product/api.2.0/update", product);
+  // }
 
+  updateProduct(movie: Movie,id:number): Observable<any> {
+    const formData = new FormData();
+    formData.append('movieName', movie.movieName);
+    formData.append('movieDirector', movie.movieDirector);
+    formData.append('movieGenre', movie.movieGenre);
+    formData.append('movieReleaseDate', movie.movieReleaseDate);
+    formData.append('movieLanguage', movie.movieLanguage);
+    formData.append('duration', movie.duration);
+    formData.append('country', movie.country);
+    formData.append('description', movie.description);
+    formData.append('overallRate', movie.overallRate.toString());
+    formData.append('file', movie.imageFile as Blob);
+  
+    return this.http.put(`http://localhost:8083/1.0/admin/updateAMovie/${id}`, formData, { responseType: 'text' });
+  }
+  
  
 }

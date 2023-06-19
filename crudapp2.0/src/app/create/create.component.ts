@@ -19,11 +19,7 @@ export class CreateComponent {
     this.productService.saveProduct(this.movie).subscribe(
       () => {
         console.log('Movie added successfully');
-
         alert('Movie added successfully');
-
-        // this.toastr.success('Movie added successfully');
-        // Reset the form
         this.movie = new Movie();
       },
       (error) => {

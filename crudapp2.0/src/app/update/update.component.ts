@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../model/product';
 import { ProductService } from '../product.service';
+import { Movie } from '../model/movie';
 
 @Component({
   selector: 'app-update',
@@ -9,24 +10,43 @@ import { ProductService } from '../product.service';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
+  movie: Movie = new Movie();
   Products: Product[] = [];
-  productId: number = 0;
+  movieId: number = 0;
   product: any;
 
   constructor(private productService: ProductService,private route: ActivatedRoute,
     private router: Router) { }
 
-  ngOnInit(): void {
-    this.productId = this.route.snapshot.params['id'];
-    this.productService.getProductById(this.productId).subscribe(
-      (product) => {
-        this.product = product;
-      },
-      (error) => {
-        console.log('Error retrieving product:', error);
-      }
-    );
-  }
+
+    ngOnInit(): void {
+      this.movieId = this.route.snapshot.params['id'];
+      this.productService.getProductById(this.movieId).subscribe(
+        (product) => {
+
+          this.product=product;
+
+          // productToMovie();
+          
+          // this.movie.movieName = product.movieName;
+          // this.movie.movieDirector = product.movieDirector;
+          // this.movie.movieGenre = product.movieGenre;
+          // this.movie.movieReleaseDate = product.movieReleaseDate;
+          // this.movie.movieLanguage = product.movieLanguage;
+          // this.movie.duration = product.duration;
+          // this.movie.country = product.country;
+          // this.movie.description = product.description;
+          // this.movie.overallRate = product.overallRate;
+          
+        },
+        (error) => {
+          console.log('Error retrieving product:', error);
+        }
+      );
+    }
+
+
+    
 
   getProducts(){
     this.router.navigate(['/retrieve']);
@@ -49,8 +69,26 @@ export class UpdateComponent implements OnInit {
   //   );
   // }
 
+  onImageFileChange(event: any) {
+    const file = event.target.files[0];
+    this.movie.imageFile = file;
+  }
+
+
+
+
   saveUpdatedProduct(): void {
-    this.productService.updateProduct(this.product).subscribe(
+     this.movie.movieName = this.product.movieName;
+          this.movie.movieDirector = this.product.movieDirector;
+          this.movie.movieGenre = this.product.movieGenre;
+          this.movie.movieReleaseDate = this.product.movieReleaseDate;
+          this.movie.movieLanguage = this.product.movieLanguage;
+          this.movie.duration = this.product.duration;
+          this.movie.country = this.product.country;
+          this.movie.description = this.product.description;
+          this.movie.overallRate = this.product.overallRate;
+
+    this.productService.updateProduct(this.movie,this.movieId).subscribe(
       (response) => {
         console.log('Product updated successfully');
         this.getProducts();
@@ -60,4 +98,5 @@ export class UpdateComponent implements OnInit {
       }
     );
   }
-}
+  }
+
