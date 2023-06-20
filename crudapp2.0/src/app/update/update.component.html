@@ -1,33 +1,3 @@
-<!-- <div class="container">
-  <h2>Update Product</h2>
-
-  <div class="card">
-    <div class="card-body">
-      <h3>Product Details</h3>
-      <form (submit)="saveUpdatedProduct()">
-        <input type="hidden" [(ngModel)]="product.productId" name="productId">
-        <div class="mb-3">
-          <label for="nameInput" class="form-label">Name:</label>
-          <input type="text" class="form-control" [(ngModel)]="product.name" name="name" required>
-        </div>
-        <div class="mb-3">
-          <label for="descriptionInput" class="form-label">Description:</label>
-          <input type="text" class="form-control" [(ngModel)]="product.description" name="description" required>
-        </div>
-        <div class="mb-3">
-          <label for="priceInput" class="form-label">Price:</label>
-          <input type="number" class="form-control" [(ngModel)]="product.price" name="price" required>
-        </div>
-        <div class="mb-3">
-          <label for="qtyInput" class="form-label">Quantity:</label>
-          <input type="number" class="form-control" [(ngModel)]="product.qty" name="qty" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Update Product</button>
-      </form>
-    </div>
-  </div>
-</div> -->
-
 
 <div class="container">
   <h2>Update Product</h2>
@@ -76,7 +46,7 @@
         <div class="mb-3">
           <img src="{{ product.imageUrl }}" alt="My Image" style="height: 100px; width: 200px;">
         </div>
-        
+
         <!-- <div class="mb-3">
           <label for="imageUrlInput" class="form-label">Image URL:</label>
           <input type="text" class="form-control" [(ngModel)]="product.imageUrl" name="imageUrl" required>

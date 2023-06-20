@@ -13,7 +13,7 @@ export class UpdateComponent implements OnInit {
   movie: Movie = new Movie();
   Products: Product[] = [];
   movieId: number = 0;
-  product: any;
+  product: Product = new Product();
 
   constructor(private productService: ProductService,private route: ActivatedRoute,
     private router: Router) { }
@@ -23,30 +23,13 @@ export class UpdateComponent implements OnInit {
       this.movieId = this.route.snapshot.params['id'];
       this.productService.getProductById(this.movieId).subscribe(
         (product) => {
-
-          this.product=product;
-
-          // productToMovie();
-          
-          // this.movie.movieName = product.movieName;
-          // this.movie.movieDirector = product.movieDirector;
-          // this.movie.movieGenre = product.movieGenre;
-          // this.movie.movieReleaseDate = product.movieReleaseDate;
-          // this.movie.movieLanguage = product.movieLanguage;
-          // this.movie.duration = product.duration;
-          // this.movie.country = product.country;
-          // this.movie.description = product.description;
-          // this.movie.overallRate = product.overallRate;
-          
+          this.product=product;          
         },
         (error) => {
           console.log('Error retrieving product:', error);
         }
       );
     }
-
-
-    
 
   getProducts(){
     this.router.navigate(['/retrieve']);
@@ -73,9 +56,6 @@ export class UpdateComponent implements OnInit {
     const file = event.target.files[0];
     this.movie.imageFile = file;
   }
-
-
-
 
   saveUpdatedProduct(): void {
      this.movie.movieName = this.product.movieName;
